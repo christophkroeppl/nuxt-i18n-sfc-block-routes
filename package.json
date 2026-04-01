@@ -37,7 +37,8 @@
     "build": "nuxt-module-build build",
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
-    "release": "bumpp && npm publish"
+    "dev:prepare": "nuxt-module-build build --stub && nuxt prepare playground",
+    "release": "npm run build && npm publish"
   },
   "dependencies": {
     "@nuxt/kit": "^3.17.0",

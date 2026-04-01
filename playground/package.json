@@ -1,0 +1,10 @@
+{
+  "name": "nuxt-i18n-sfc-block-routes-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate"
+  }
+}
