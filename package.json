@@ -1,0 +1,57 @@
+{
+  "name": "nuxt-i18n-sfc-block-routes",
+  "version": "0.1.0",
+  "description": "Extract i18n route translations from Vue SFC <i18n> blocks for @nuxtjs/i18n",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "nuxt",
+    "i18n",
+    "routes",
+    "internationalization",
+    "vue",
+    "sfc",
+    "module"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophkroeppl/nuxt-i18n-sfc-block-routes.git"
+  },
+  "homepage": "https://github.com/christophkroeppl/nuxt-i18n-sfc-block-routes#readme",
+  "bugs": {
+    "url": "https://github.com/christophkroeppl/nuxt-i18n-sfc-block-routes/issues"
+  },
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "build": "nuxt-module-build build",
+    "dev": "nuxt dev playground",
+    "dev:build": "nuxt build playground",
+    "release": "bumpp && npm publish"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.17.0",
+    "yaml": "^2.7.1"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^3.17.0",
+    "@nuxtjs/i18n": "^10.2.4",
+    "nuxt": "^3.17.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.0"
+  },
+  "peerDependencies": {
+    "@nuxtjs/i18n": ">=10.0.0"
+  }
+}
