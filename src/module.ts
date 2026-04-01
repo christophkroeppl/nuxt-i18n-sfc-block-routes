@@ -12,8 +12,11 @@ const trailingSlashesPattern = /\/+$/
 
 export default defineNuxtModule({
   meta: {
-    name: 'i18n-routes',
+    name: 'nuxt-i18n-sfc-block-routes',
     configKey: 'i18nRoutes',
+    compatibility: {
+      nuxt: '>=3.0.0',
+    },
   },
   setup(_, nuxt) {
     // ── 1. Scan pages dir for i18n route blocks ──────────────────────────
