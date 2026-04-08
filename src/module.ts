@@ -20,12 +20,17 @@ export default defineNuxtModule({
   },
   setup(_, nuxt) {
     // ── 1. Scan pages dir for i18n route blocks ──────────────────────────
-    const pagesDir = resolve(nuxt.options.srcDir, 'pages')
+    //    Scan all layers (including the root) so that pages defined in
+    //    Nuxt layers are discovered alongside root-level pages.
     const translations: Record<string, Record<string, string>> = {}
 
-    scanDir(pagesDir, '', translations)
-
-    console.log('[i18n-routes] scanned translations:', JSON.stringify(translations, null, 2))
+    const seen = new Set<string>()
+    for (const layer of nuxt.options._layers) {
+      const pagesDir = resolve(layer.config.srcDir ?? layer.config.rootDir, 'pages')
+      if (seen.has(pagesDir)) continue
+      seen.add(pagesDir)
+      scanDir(pagesDir, '', translations)
+    }
 
     // ── 2. Populate nuxt.options.i18n.pages BEFORE any hooks fire ────────
     //    @nuxtjs/i18n creates NuxtPageAnalyzeContext(options.pages) inside its
@@ -47,7 +52,6 @@ export default defineNuxtModule({
         }
       }
 
-      console.log('[i18n-routes] nuxt.options.i18n.pages:', JSON.stringify(i18nOpts.pages, null, 2))
     }
 
     // ── 3. Also extract into page.meta.i18n for completeness ─────────────
